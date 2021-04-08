@@ -9,7 +9,8 @@
   },
   "require-dev": {
     "wp-cli/i18n-command": "2.2.2",
-    "wpeverest/wpeverest-sniffs": "0.1.0"
+    "wpeverest/wpeverest-sniffs": "0.1.0",
+    "phpunit/phpunit": "^7"
   },
   "scripts": {
     "phpcs": [
