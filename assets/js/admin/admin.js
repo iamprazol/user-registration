@@ -403,10 +403,10 @@ jQuery(function ($) {
 				type: 'post',
 				beforeSend: function () {
 					var spinner = '<span class="ur-spinner is-active"></span>';
-					$('.user_registration_send_email_test').append(spinner);
+					$('.user_registration_send_email_test').after(spinner);
 				},
 				complete: function(response) {
-						$('.user_registration_send_email_test').find('.ur-spinner').remove();
+						$('.ur-spinner').remove();
 						$('.user-registration_page_user-registration-settings .notice').remove();
 						if(response.responseJSON.success === true) {
 							message_string = '<div class="success notice notice-success is-dismissible"><p><strong>' + response.responseJSON.data.message + '</strong></p></div>';
@@ -416,11 +416,11 @@ jQuery(function ($) {
 							$('.user-registration-header').after(message_string);
 						}
 						$('.user-registration_page_user-registration-settings .notice').css('display','block');
-
-
+						$(window).scrollTop(
+							$(".notice").position()
+						);
 				},
 			});
-
 		});
 });
 
@@ -3214,7 +3214,5 @@ function ur_confirmation(message, options) {
 			options.reject();
 		}
 	});
-
-
 }
 
